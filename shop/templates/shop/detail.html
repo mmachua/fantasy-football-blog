@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% load static %}
+
+{{%  block head %}
+<title>{{ product.name }}</title>
+{% endblock head  %}}
+
+
+{% block body %}
+<div class="container">
+<br/>
+  <h5 class="text-right"><a href="{{ product.category.get_absolute_re_path }}"><cite title="Source Title"> {{ product.category }}</cite></a></h5>
+  
+  <h2 class="featurette-heading">{{ product.descriptiontitle }} <span class="text-muted"></span></h2>
+</div>
+<br/>
+
+
+    
+    <div class="container">
+          <div class="border-light card mb-3">
+  <img src="{{ product.image.url }}" class="card-img-top img-fluid" alt="..." style="width:69.25rem; height:26.5rem; display:table-row-group;">
+  <div class="card-body">
+    <h5 class="card-title"><b> {{ product.name }}</b> </h5>
+            <blockquote class="blockquote text-justify"> <p class="mb-0">  {{ product.description|linebreaks }}</p></blockquote>
+            <br>
+
+                                      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                          <div class="carousel-item active">
+                                               <img src="{{ product.image2.url }}" class="card-img-top img-fluid rounded mx-auto d-block" alt="..." 
+                                               style="width: 48.25rem; height:30.5rem; display:table-row-group;">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="{{ product.image3.url }}" class="card-img-top img-fluid rounded mx-auto d-block" alt="..." 
+                                               style="width: 48.25rem; height:30.5rem; display:table-row-group;">
+                                          </div>
+                                          <div class="carousel-item">
+                                            <img src="{{ product.image.url }}" class="card-img-top img-fluid rounded mx-auto d-block" alt="..." 
+                                               style="width: 48.25rem; height:30.5rem; display:table-row-group;">
+                                          </div>
+                                        </div>
+                                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                          <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                          <span class="sr-only">Next</span>
+                                        </a>
+                                      </div>
+
+
+
+
+
+
+
+           
+            <br>
+            <blockquote class="blockquote text-justify"> <h4 class="mb-0">  {{ product.descriptiontitle2|linebreaks }}</h4></blockquote>
+            <blockquote class="blockquote text-justify"> <p class="mb-0">  {{ product.description2|linebreaks }}</p></blockquote>
+    
+    
+    <a href= "{{ product.category.get_absolute_re_path }}" ><button type="button" class="btn btn-success  btn-sm">See Similar Player Reviews</button></a>
+  </div>
+
+</div>
+
+
+
+
+
+      
+
+
+
+
+
+
+      
+          
+        
+         </div>           
+    </div>
+
+   
+
+
+
+
+
+
+
+
+
+<div class="footer" style="color:olive;">
+        <hr/>
+        <div class="copyright">
+          <div class="container">
+            <span>Martin Machua &copy; 2021</span>
+        </div>
+      </div>
+    </div>
+
+{% endblock body %}

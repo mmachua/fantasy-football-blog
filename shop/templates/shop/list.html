@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+
+{{%  block head %}
+<title>Shop</title>
+{% endblock head  %}}
+
+{% block body %}
+  
+
+
+         
+    <div class="row">
+            <div class="col-3 col-md col-md-2">
+                 <div class="container">
+                    <h4></h4>
+                 </div>           
+            </div>
+
+            <!--section 2-->
+        <div class="col-12 col-sm-9" style="color:rgb(177, 8, 8);">
+<br/>
+              
+            <span class="align-middle">       
+            <div id="main" class="product-list">
+            <h4>{% if category %}{{ category.name }}{% else %}{% endif %} </h4>    
+                {% for product in products %}
+                
+        <span class="separator">
+            <div class="row" style="width: 30rem; height:26rem; display:table-row-group;"  >
+                
+                <div class="card  border-grey border-top-0 mb-3 shadow-sm" >
+                    <a href="{{ product.get_absolute_re_path }}">
+                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif  %}" style="width: 20rem; height:13.5rem;">
+                    </a>
+                    <hr/>
+                    <div class="container">
+                    
+                    <a href="{{ product.get_absolute_re_path }}"><h5 class="lead text-center text-danger" style="width: 18rem;">{{ product.descriptiontitle|linebreaks }}</h5></a><br/>
+                   
+                </div>
+                   
+               
+                </div>
+                </div>
+            
+                {% endfor %}
+
+ {% include "pagination.html" %} 
+
+ <!--pagination-->              
+<!--<div class="pagination">
+    <span class="step-links">
+        {% if products.has_previous %}
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ products.previous_page_number}}">previous</a>
+        {% endif %}
+    </span>
+    <span class="current">
+        Page{{ products.number }} of {{ products.paginator.num_pages }}.
+    {% if products.has_next %}
+       <a href="?page={{ products.next_page_number }}">next</a>
+       <a href="?page={{ products.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+    </span>
+</div>-->
+
+            </div>
+        
+             </div>
+           
+            
+        </div>
+      </div>
+      <br/>
+     
+      <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>&copy; Fantasy Prmier League Tips and Tricks &middot; <a href="#">Privacy</a> Fantasy Tricks and Tips <a href="#">Terms</a></p>
+          </footer>   
+    
+{% endblock body %}
